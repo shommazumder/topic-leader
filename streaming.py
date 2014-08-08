@@ -11,7 +11,7 @@ class SListener(StreamListener):
         self.num_tweets = 0
         self.tweet_max = 10000
         self.fprefix = fprefix
-        self.output = open('/Users/ShomMazumder/Desktop/DataMining/contentLeadership/streaming_data/'+fprefix+'.json','w+')
+        self.output = open('PATH WHERE YOU WANT DATA SAVED'+fprefix+'.json','w+')
         self.delout = open('delete.txt', 'a')
 
     def on_data(self, data):
