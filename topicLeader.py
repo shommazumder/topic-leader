@@ -82,10 +82,11 @@ news_orgs = {'NPR': {'url': 'npr', 'count': nprCount},
              }
 
 #Twitter credentials
-consumer_key = 'PKvAaHCVuiDZvHqznOzgRIaEZ'
-consumer_secret = 'C2rckdo7pGVyuiGgEaCncVhedbnq1xac9xf1Kcx3w3wU0zZw6C'
-access_token_key = '1593874944-v3UR1svurhmITJCULBP4TCGNZr0VRAelcQIRiW5'
-access_token_secret = 'KBCLsZk3jwa7gCL0ppeHunr6N7vzGBjoWi96E5goYjveo'
+#you'll have to register with Twitter to get your OAuth Credentials 
+consumer_key = 'CONSUMER KEY'
+consumer_secret = 'CONSUMER SECRET'
+access_token_key = 'ACCESS TOKEN KEY'
+access_token_secret = 'ACCESS TOKEN SECRET'
 
 #initialize twitter api
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -116,9 +117,10 @@ except:
     print 'error!'
     stream.disconnect()
 
+#this batch of code stores each tweet as a json file in your working directory
 streamed_tweets = []
-fileName = 'tweetDataBusiness'
-with open('/Users/ShomMazumder/Desktop/DataMining/contentLeadership/streaming_data/'+fileName+'.json') as json_file:
+fileName = 'NAME FILE HERE'
+with open(fileName+'.json') as json_file:
     for line in json_file:
         line = line.strip()
         try:
@@ -126,7 +128,7 @@ with open('/Users/ShomMazumder/Desktop/DataMining/contentLeadership/streaming_da
         except:
             pass
 
-#extracting urls from tweets that have urls
+#this batch of code resolves all urls
 urls = []
 print "searching through tweets"
 pbar = ProgressBar(widgets=[Percentage(), Bar(), ETA()], maxval=len(streamed_tweets)+1)
